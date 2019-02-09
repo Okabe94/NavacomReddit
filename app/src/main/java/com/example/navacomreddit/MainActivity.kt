@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         recyclerView_MainPage.layoutManager = LinearLayoutManager(this)
-
+        //Populate the view.
         fetchPosts()
     }
 
@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         })
-
     }
 }
 
@@ -48,5 +47,5 @@ class MainActivity : AppCompatActivity() {
 class HomeFeed(val data: Data)
 class Data(val children: List<Children>)
 class Children(val data: ChildrenData)
-class ChildrenData(val banner_img: String, val public_description: String, val community_icon: String,
-      val subscribers: Long, val url: String, val created_utc: Long)
+class ChildrenData(val banner_img: String, val public_description: String, val icon_img: String,
+      val subscribers: Long, val banner_background_color: String, val primary_color: String, val url: String, val created_utc: Long)
