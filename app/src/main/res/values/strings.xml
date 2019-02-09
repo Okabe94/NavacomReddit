@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">NavacomReddit</string>
+    <string name="app_name">Navacom Reddit</string>
+    <string name="subscribers"> subscribers</string>
 </resources>
