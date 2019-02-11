@@ -1,10 +1,8 @@
 package com.example.navacomreddit
 
-import android.content.Intent
 import android.graphics.Color
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
@@ -30,20 +28,24 @@ class PostAdapter(val homeFeed: HomeFeed): RecyclerView.Adapter<ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Populating with the values obtained
-        val post = homeFeed.data.children.get(position)
-        holder.view.textView_Name.text = post.data.url
+        val post = homeFeed.data.children[position]
+        holder.view.textView_DetailName.text = post.data.url
         holder.view.textView_Description.text = post.data.public_description
-        holder.view.textView_Subscribers.text = NumberFormat.getInstance().format(post.data.subscribers)
+        holder.view.textView_DetailSubscribers.text = NumberFormat.getInstance().format(post.data.subscribers)
+
         // Converting UTC to Useful date
         val utc = Date(post.data.created_utc)
         val date = DateFormat.getDateInstance(DateFormat.LONG).format(utc)
-        holder.view.textView_CreationDate.text = date.toString()
+        holder.view.textView_DetailCreationDate.text = date.toString()
         val bannerImg = holder.view.imageView_Banner
-        val communityIcon = holder.view.imageView_CommunityIcon
+        val communityIcon = holder.view.imageView_DetailCommunityIcon
+
         // Checking the links of the images
         val apiBannerImg = post.data.banner_img
         val apiIcon = post.data.icon_img
+
         // Checking their contents
+        // Some pages do not have an image to set
         if(apiBannerImg.isNotBlank()) {
             Picasso.get().load(apiBannerImg).into(bannerImg)
             fillShape(bannerImg, Color.TRANSPARENT)
@@ -66,6 +68,7 @@ class PostAdapter(val homeFeed: HomeFeed): RecyclerView.Adapter<ViewHolder>() {
                 fillShape(communityIcon, noIconColor)
             }
         }
+        holder.post = post
     }
     // Reusable functions based on the outcome of the API request
     private fun fillShape(space: ImageView, color: String){
@@ -76,13 +79,4 @@ class PostAdapter(val homeFeed: HomeFeed): RecyclerView.Adapter<ViewHolder>() {
         space.setColorFilter(color)
         space.setBackgroundColor(color)
     }
-}
-class ViewHolder(val view: View): RecyclerView.ViewHolder(view){
-    init{
-        view.setOnClickListener {
-            val intent = Intent(view.context, DetailPost::class.java)
-            view.context.startActivity(intent)
-        }
-    }
-
 }

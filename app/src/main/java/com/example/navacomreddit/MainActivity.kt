@@ -12,6 +12,7 @@ import okhttp3.Response
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
+    private val apiUrl = "https://www.reddit.com/reddits.json"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         fetchPosts()
     }
 
-    fun fetchPosts(){
-        val url = "https://www.reddit.com/reddits.json"
+    private fun fetchPosts(){
+        val url = apiUrl
         val request = Request.Builder().url(url).build()
         val client = okhttp3.OkHttpClient()
         client.newCall(request).enqueue(object: Callback{
@@ -41,11 +42,15 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 }
+
 
 //Json Abstraction
 class HomeFeed(val data: Data)
 class Data(val children: List<Children>)
 class Children(val data: ChildrenData)
-class ChildrenData(val banner_img: String, val public_description: String, val icon_img: String,
-      val subscribers: Long, val banner_background_color: String, val primary_color: String, val url: String, val created_utc: Long)
+class ChildrenData(val banner_img: String, val public_description: String,
+                   val description: String, val icon_img: String,val subscribers: Long,
+                   val banner_background_color: String, val display_name: String, val primary_color: String,
+                   val url: String, val created_utc: Long, val submit_text: String, val header_title: String)

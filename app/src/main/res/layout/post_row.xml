@@ -7,14 +7,14 @@
 
     <ImageView
             android:layout_width="0dp"
-            android:layout_height="97dp" tools:srcCompat="@tools:sample/backgrounds/scenic"
+            android:layout_height="100dp" tools:srcCompat="@tools:sample/backgrounds/scenic"
             android:id="@+id/imageView_Banner" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_launcher_background" android:scaleType="fitXY"/>
     <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="78dp"
             android:layout_height="76dp" tools:srcCompat="@tools:sample/avatars"
-            android:id="@+id/imageView_CommunityIcon"
+            android:id="@+id/imageView_DetailCommunityIcon"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             android:layout_marginTop="40dp" app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/ic_launcher_round"/>
@@ -35,46 +35,46 @@
             android:id="@+id/textView_Description"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/textView_Subscribers"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/textView_DetailSubscribers"
             android:textColor="@color/black"/>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView_Name"
+            android:id="@+id/textView_DetailName"
             android:textSize="24sp"
             android:text="URL name" android:textColor="@color/black"
             android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/imageView_CommunityIcon" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_DetailCommunityIcon" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"/>
     <TextView
             android:text="Subs count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView_Subscribers" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/textView_DetailSubscribers" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView_Name"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView_DetailName"
             android:textColor="@color/gray"/>
     <TextView
             android:text="Creation date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView_CreationDate"
+            android:id="@+id/textView_DetailCreationDate"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView_Name" android:textColor="@color/gray"
-            app:layout_constraintStart_toEndOf="@+id/textView2" android:layout_marginStart="4dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView_DetailName" android:textColor="@color/gray"
+            app:layout_constraintStart_toEndOf="@+id/textView_Separator" android:layout_marginStart="4dp"/>
     <TextView
             android:text="@string/subscribers"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView" app:layout_constraintStart_toEndOf="@+id/textView_Subscribers"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView_Name"
+            android:id="@+id/textView_SubscriberText" app:layout_constraintStart_toEndOf="@+id/textView_DetailSubscribers"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView_DetailName"
             android:layout_marginStart="4dp"/>
     <TextView
             android:text="°"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView2" app:layout_constraintStart_toEndOf="@+id/textView"
+            android:id="@+id/textView_Separator" app:layout_constraintStart_toEndOf="@+id/textView_SubscriberText"
             android:layout_marginStart="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView_Name"
-            app:layout_constraintEnd_toStartOf="@+id/textView_CreationDate"/>
+            app:layout_constraintTop_toBottomOf="@+id/textView_DetailName"
+            app:layout_constraintEnd_toStartOf="@+id/textView_DetailCreationDate"/>
 </android.support.constraint.ConstraintLayout>

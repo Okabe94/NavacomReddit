@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Navacom Reddit</string>
     <string name="subscribers"> subscribers</string>
+    <string name="since"> ° Since: </string>
+    <string name="submit">Submit</string>
+    <string name="comment">Join the discussion...</string>
 </resources>
